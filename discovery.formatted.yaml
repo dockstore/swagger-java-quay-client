@@ -572,6 +572,19 @@ definitions:
         description: TBD
         type: boolean
     type: object
+  QuayRepoManifest:
+    description: Describes the manifest data of a particular Quay tag.
+    properties:
+      digest:
+        description: The digest of the manifest
+        type: string
+      is_manifest_list:
+        description: Whether this manifest contains a list of one or more image layers
+        type: boolean
+      manifest_data:
+        description: Actual list of image layers that contains info about the multi-arch/platform specific versions of the image. String follows JSON formatting.
+        type: string
+    type: object
   QuayTag:
     description: Dockstore observed return object
     properties:
@@ -591,6 +604,9 @@ definitions:
         description: TBD
         type: integer
         format: int64
+      is_manifest_list:
+        description: TBD
+        type: boolean
     type: object
   RepoUpdate:
     description: Fields which can be updated in a repository.
@@ -3669,7 +3685,7 @@ paths:
     x-tag: logs
   '/api/v1/repository/{repository}/manifest/{manifestref}':
     get:
-      description: ''
+      description: Get a manifest from the repo by digest
       operationId: getRepoManifest
       parameters:
         - description: The digest of the manifest
@@ -3685,6 +3701,8 @@ paths:
       responses:
         '200':
           description: Successful invocation
+          schema:
+            $ref: '#/definitions/QuayRepoManifest'
         '400':
           description: Bad Request
           schema:

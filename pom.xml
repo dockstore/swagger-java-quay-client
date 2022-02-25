@@ -412,7 +412,7 @@
                                 <fileset>
                                     <directory>target/generated-sources/swagger/src/gen/java/main/io/swagger/quay/client/api</directory>
                                     <includes>
-                                        <include>ManifestApi.java</include>
+                                        <!--                                        <include>ManifestApi.java</include>-->
                                         <include>SecscanApi.java</include>
                                     </includes>
                                 </fileset>

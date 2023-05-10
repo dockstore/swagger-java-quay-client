@@ -447,12 +447,6 @@
                             <token>javax.xml.bind</token>
                             <value>jakarta.xml.bind</value>
                         </replacement>
-                        <!--
-                        <replacement>
-                            <token>com.fasterxml.jackson.jaxrs.json</token>
-                            <value>com.fasterxml.jackson.jakarta.rs.json</value>
-                        </replacement>
-                        -->
                     </replacements>
                 </configuration>
             </plugin>	    
